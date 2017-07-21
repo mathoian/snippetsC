@@ -1,0 +1,140 @@
+
+
+'.source.c, .source.cpp, .source.objc, .source.objcpp':
+  'main in C':
+    'prefix': 'main'
+    'body': '/*\n
+    Mathoian Santos https://github.com/mathoian  :]\n
+
+    programa:  ${1:"name"}$2\n
+    Assunto:${3:"Assunto"}$4\n
+    Linguagem: C\n
+    SO utilizado: arch linux x64\n
+    versão do compilador: GCC 7.1.1 20170528\n
+      */\n
+    #include<stdio.h>\n
+    #include<stdlib.h>\n
+    \n\n\n
+
+   int main(int argc, char *argv[ ]){\n
+         ${9:"//variaveis"}$10\n\n$10
+
+   return EXIT_SUCCESS;\n
+   }'
+'.source.c, .source.cpp,.source.c, .source.objc':
+   'scanf("%*c")':
+     'prefix': 'scan'
+     'body':
+      '//scanf("%*c");\n
+      //system("exit");\n'
+
+'.source.c, .source.cpp, .source.objcpp,.source.c, .source.objc':
+   'include mathoian':
+     'prefix': '#i'
+     'body':
+      'include<${1:"reader"}$2.h>'
+
+ '.source.c,.source.cpp':
+    'include mx':
+      'prefix': '#in'
+      'body': '#include<power.h>'
+
+'.source.c\\+\\+,.source.c':
+  'Header':
+    'prefix': 'head'
+    'body': '#include <iostream>\nusing namespace std;\n\n$1'
+
+'.source.c\\+\\+,.source.c,.source.cpp':
+  'include mx':
+    'prefix': 'inc'
+    'body': 'include<${1:"Header"}.h>\n$2'
+
+'.source.txt,.source.c,.source.cpp,.source.c':
+  'printf puro':
+    'prefix': 'prin'
+    'body': 'printf("${1:"code"}");$2'
+'.source.c,.source.cpp,.source.c':
+    'var dinamico':
+      'prefix': 'aloc'
+      'body': '(${1:int}*) malloc(sizeof(${2:int}));\n$3'
+
+'.source.c,.source.c\\+\\+,.source.c,.source.cpp':
+  'scan puro':
+    'prefix': 'sca'
+    'body': 'scanf("%$1",$2);\n$3'
+
+'.source.c,.source.cpp, .source.c':
+  'for puro':
+   'prefix':'forr'
+   'body': 'for(int i = 0;i < VETOR; i++){\n
+     }'
+
+
+'.source.c,.source.cpp,.source.c\\+\\+':
+  'print+scan 2':
+   'prefix': 'pri'
+   'body': 'printf("${1:string}");\n
+   scanf("%${2:d}",${3:variavel});\n$4
+   printf("${5:string}");\n
+   scanf("%${6:d}",${7:variavel});\n$8
+   '
+  '.source.c,.source.cpp,.source.c,.source.cpp':
+   'print+scan1':
+    'prefix': 'pr'
+    'body': 'printf("${1:string}");\n
+       scanf("%${2:d}",${3:variavel});\n$4'
+
+'.source.c\\+\\+,.source.c,.source.cpp, .source.cc':
+ 'include +':
+   'prefix': 'in'
+   'body': '#include<${1:"Header"}.h>\n$2'
+
+'.source.c,.source.cpp, .source.cc':
+ 'buffer limpar':
+   'prefix': 'buff'
+   'body': 'setbuf(stdin, NULL); // limpando buffer problematico\n$2'
+
+'.source.c\\+\\+,.source.c,.source.cpp, .source.cc':
+  'limpa tela':
+   'prefix': 'tela'
+   'body': 'printf("\e[H\e[2J"); // funcao limpar tela\n$2'
+
+'.source.c,.source.cpp':
+  'printf %':
+    'prefix': 'print'
+    'body': 'printf("%${1:code}",${2:variavel});\n$3'
+
+'.source.c,.source.c\\+\\+,.source.cpp':
+  'matriz':
+   'prefix': 'mat'
+   'body': 'for (size_t x = 0; x < ${1:code}; x++){\n
+           for (size_t y = 0; y < ${2:code}; y++){\n
+              ${3:/*code*/}\n
+            }\n
+      }\n'
+'.source.c,.source.c\\+\\+':
+  'return sucess':
+   'prefix': 'ret'
+   'body': 'return EXIT_SUCCESS;'
+
+'.source.c,.source.c\\+\\+,.source.cpp':
+   'return FAILURE':
+     'prefix': 'retu'
+     'body': 'return EXIT_FAILURE;'
+
+
+'.source.txt,.source.c,.source.cpp':
+    'info program':
+        'prefix':'info'
+        'body':'
+         /*
+         * Mathoian Santos https://github.com/mathoian  :]\n
+         * Link do projeto:${1:Link}\n
+         * Link projeto github:${2:link}\n
+         * Programa: ${3:name} \n
+         * Assunto:" ${4:nome}\n
+         * Linguagem: C\n
+         * versão do compilador: GCC 7.1.1 20170528\n
+         * SO utilizado: arch linux x64\n
+         */$5
+         '
